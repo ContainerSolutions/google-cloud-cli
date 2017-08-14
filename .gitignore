@@ -1,0 +1,5 @@
+# Ignore kubectl config dir
+/kube/
+
+# Ignore gcloud cache dir
+/config/
