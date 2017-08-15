@@ -1,4 +1,4 @@
-NAME := containersolutions/google-cloud-cli
+NAME := containersol/google-cloud-cli
 TAG  := $$(git log -1 --pretty=%H)
 IMG  := ${NAME}:${TAG}
 
@@ -25,7 +25,7 @@ push-image:
 	@docker push ${IMG}
 	@docker push ${NAME}:latest
 
-tag-latest:
+tags:
 	@docker tag ${IMG} ${NAME}:latest
 
-release: image push-image
+release: image tags push-image
