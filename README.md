@@ -16,6 +16,13 @@ $ docker pull containersol/google-cloud-cli
 You most likely will want to keep a local copy of the cache directories of `gcloud` and `kubectl`, so
 this is the most effective way to run and use this image:
 
+```
+$ docker run \
+  --rm \
+  -v $(PWD)/config:/root/.config \
+  -v $(PWD)/kube:/root/.kube \
+  -it containersol/google-cloud-cli
+```
 
 ## Running the kubectl proxy
 At some point you will want to get access to the Kubernetes dashboard that's running remotely. For this you'll
@@ -23,14 +30,20 @@ have to run the `kubectl proxy` command, together with some extra options for th
 expose the right ports:
 
 ```
-$ docker run \ --rm \ -v ${PWD}/config:/root/.config \ -v ${PWD}/kube:/root/.kube \ -p 8001:8001 \ --entrypoint /usr/bin/kubectl \ -it ${NAME} proxy --accept-hosts '^.+$$' --address 0.0.0.0
+$ docker run \
+  --rm \
+  -v $(PWD)/config:/root/.config \
+  -v $(PWD)/kube:/root/.kube \
+  -p 8001:8001 \
+  --entrypoint /usr/bin/kubectl \
+  -it containersol/google-cloud-cli proxy --accept-hosts '^.+$$' --address 0.0.0.0
 ```
 
 # Development
 ## Requirements
-| What? | Version |
-|-------o---------|
-| make  | `> 4.1` |
+| What?   | Version   |
+| ------- | --------- |
+| make    | `> 4.1`   |
 
 ## Building the image
 ```
