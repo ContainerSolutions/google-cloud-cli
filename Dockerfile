@@ -22,3 +22,4 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
 RUN echo 'alias kc=kubectl' >> ~/.bashrc
 
 ENTRYPOINT ["/bin/bash"]
+CMD [""]
