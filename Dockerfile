@@ -2,7 +2,7 @@ FROM alpine:3.5
 
 MAINTAINER Container Solutions <info@container-solutions.com>
 
-RUN apk add -U bash curl python git
+RUN apk add -U bash curl python git jq
 
 RUN mkdir /opt
 
