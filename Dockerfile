@@ -10,7 +10,7 @@ RUN mkdir /opt
 RUN curl -LO https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-159.0.0-linux-x86_64.tar.gz && \
     tar xf google-cloud-sdk-159.0.0-linux-x86_64.tar.gz && \
     mv google-cloud-sdk /opt/google-cloud-sdk && \
-    ln -s /opt/google-cloud-sdk/bin/gcloud /bin/gcloud && \
+    ln -s /opt/google-cloud-sdk/bin/* /bin/ && \
     rm google-cloud-sdk-159.0.0-linux-x86_64.tar.gz
 
 # Install kubectl
