@@ -36,7 +36,7 @@ $ docker run \
   -v $(PWD)/kube:/root/.kube \
   -p 8001:8001 \
   --entrypoint /usr/bin/kubectl \
-  -it containersol/google-cloud-cli proxy --accept-hosts '^.+$$' --address 0.0.0.0
+  -it containersol/google-cloud-cli proxy --accept-hosts '^.+$' --address 0.0.0.0
 ```
 
 # Development

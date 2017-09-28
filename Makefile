@@ -10,7 +10,8 @@ run:
 		--rm \
 		-v ${PWD}/config:/root/.config \
 		-v ${PWD}/kube:/root/.kube \
-		-it ${IMG}
+		-v ${PWD}:/usr/src/code \
+		-it ${IMG} bash
 
 proxy:
 	@docker run \
@@ -18,8 +19,7 @@ proxy:
 		-v ${PWD}/config:/root/.config \
 		-v ${PWD}/kube:/root/.kube \
 		-p 8001:8001 \
-		--entrypoint /usr/bin/kubectl \
-		-it ${NAME} proxy --accept-hosts '^.+$$' --address 0.0.0.0
+		-it ${NAME} kubectl proxy --accept-hosts '^.+$$' --address 0.0.0.0
 
 push-image:
 	@docker push ${IMG}
