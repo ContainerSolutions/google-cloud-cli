@@ -1,4 +1,8 @@
 # Google Cloud CLI
+[![Build Status](https://travis-ci.org/ContainerSolutions/google-cloud-cli.svg?branch=master)](https://travis-ci.org/ContainerSolutions/google-cloud-cli)
+
+---
+
 This Docker image features the tools required to interact with the Google Cloud API
 (via the `gcloud` CLI tool and with any Kubernetes cluster, both hosted (via the GKE)
 or running on prem

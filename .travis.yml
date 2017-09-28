@@ -1,0 +1,16 @@
+language: bash
+sudo: enabled
+
+services:
+  - docker
+
+jobs:
+  include:
+    - stage: build
+      script: make image
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+      make login;
+      make push;
+    fi
